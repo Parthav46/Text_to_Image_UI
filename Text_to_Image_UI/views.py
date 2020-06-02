@@ -9,7 +9,7 @@ def index(request):
 def t2i(request):
     t2i = Text_to_Image()
     text = request.POST.get('text')
-    
+    print("Input >>>>> ", text)
     context = {
         'num': t2i.process(text)[1]
     }

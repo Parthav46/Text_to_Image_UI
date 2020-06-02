@@ -6,4 +6,3 @@ __pycache__/
 .vscode/
 *.sqlite3
 images/
-setup.sh
