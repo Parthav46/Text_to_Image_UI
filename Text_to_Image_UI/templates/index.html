@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<title> Text to Image conversion</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="/static/js/index.js"></script>
+	</head>
 	<body>
-		<form action="/t2i" method="POST">
+		<form id='form'>
 			{% csrf_token %}
 			<input type='text' id='text' name='text'>
-			<button type="submit">Submit</button>
+			<button type='button' onclick="t2i()">Submit</button>
 		</form>
+
+		<div>
+			<div id='content'>
+			</div>
+		</div>
 	</body>
 </html>

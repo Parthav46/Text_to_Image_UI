@@ -4,5 +4,6 @@ checkpoint/
 __pycache__/
 *.pyc
 .vscode/
+*.sqlite3
 images/
 setup.sh
