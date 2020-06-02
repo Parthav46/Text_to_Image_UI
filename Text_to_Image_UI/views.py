@@ -1,33 +1,16 @@
-import tensorflow as tf
-import numpy as np
-import json
-
+from model.UI import Text_to_Image
 from django.shortcuts import render
-from django.views.decorators.csrf import csrf_exempt
+import json
+# from django.views.decorators.csrf import csrf_exempt
 
 def index(request):
-    model = tf.keras.Sequential([tf.keras.layers.Dense(units=1, input_shape=[2])])
-    model.compile(optimizer='sgd', loss='mean_squared_error')
-    model.load_weights('static/sample.h5')
-    val = model.predict([[float(request.GET['a']), float(request.GET['b'])]])
-    context = {
-        'ans': val
-    }
-    return render(request, 'index.html', context)
+    return render(request, 'index.html')
 
-@csrf_exempt
-def mnist(request):
-	model = tf.keras.Sequential([
-		tf.keras.layers.Flatten(input_shape=(28,28)),
-		tf.keras.layers.Dense(196, activation='relu'),
-		tf.keras.layers.Dense(49, activation='relu'),
-		tf.keras.layers.Dense(10, activation='softmax')
-	])
-	model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-	model.load_weights('static/mnist.h5')
-	data = json.loads(request.body)['data']
-	val = np.argmax(model.predict([data]))
-	context = {
-		'ans': val
-	}
-	return render(request, 'index.html', context)
+def t2i(request):
+    t2i = Text_to_Image()
+    text = request.POST.get('text')
+    
+    context = {
+        'num': t2i.process(text)[1]
+    }
+    return render(request, 't2i.html', context)

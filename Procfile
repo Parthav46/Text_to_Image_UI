@@ -1,1 +1,0 @@
-web: gunicorn Text_to_Image_UI.wsgi --log-file -

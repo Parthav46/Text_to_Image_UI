@@ -1,0 +1,8 @@
+dataset/
+test.py
+checkpoint/
+__pycache__/
+*.pyc
+.vscode/
+images/
+setup.sh

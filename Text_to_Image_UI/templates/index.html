@@ -1,4 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-	<body>{{ ans }}</body>
+<html>
+	<body>
+		<form action="/t2i" method="POST">
+			{% csrf_token %}
+			<input type='text' id='text' name='text'>
+			<button type="submit">Submit</button>
+		</form>
+	</body>
 </html>
