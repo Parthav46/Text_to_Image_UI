@@ -3,6 +3,20 @@
 <!DOCTYPE html>
 <html lang="en">
 	<body>
+		<input id='id' hidden='true' value="{{ num }}">
 		<img src="{% static 'images' %}/img_{{ num }}.jpg" alt="bird_image"/>
+
+		<div class="rating">
+			<div>
+				How satisfied are you with the details of the generated image?
+			</div>
+			<div>
+				<span id='1' onclick="rate(1)" style="padding: 20px;"> 1 </span>
+				<span id='1' onclick="rate(2)" style="padding: 20px;"> 2 </span>
+				<span id='1' onclick="rate(3)" style="padding: 20px;"> 3 </span>
+				<span id='1' onclick="rate(4)" style="padding: 20px;"> 4 </span>
+				<span id='1' onclick="rate(5)" style="padding: 20px;"> 5 </span>
+			</div>
+		</div>
 	</body>
 </html>

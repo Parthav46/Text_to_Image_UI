@@ -6,13 +6,14 @@
 		<script src="/static/js/index.js"></script>
 	</head>
 	<body>
-		<form id='form'>
+		<div>
 			{% csrf_token %}
 			<input type='text' id='text' name='text'>
 			<button type='button' onclick="t2i()">Submit</button>
-		</form>
+		</div>
 
 		<div>
+			<div id='loader' style="visibility: hidden;"> Generating image </div>
 			<div id='content'>
 			</div>
 		</div>
