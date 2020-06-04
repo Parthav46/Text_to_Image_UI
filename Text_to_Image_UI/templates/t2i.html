@@ -3,20 +3,24 @@
 <!DOCTYPE html>
 <html lang="en">
 	<body>
-		<input id='id' hidden='true' value="{{ num }}">
-		<img src="{% static 'images' %}/img_{{ num }}.jpg" alt="bird_image"/>
-
+		<div class='res'>
+			<input id='id' hidden='true' value="{{ num }}">
+			<input id='rating' hidden='true' value="{{ rating }}">
+			<img class="image" src="{% static 'images' %}/img_{{ num }}.jpg" alt="bird_image"/>
+		</div>
+		{% if survey %}
 		<div class="rating">
-			<div>
+			<div class="text">
 				How satisfied are you with the details of the generated image?
 			</div>
-			<div>
-				<span id='1' onclick="rate(1)" style="padding: 20px;"> 1 </span>
-				<span id='1' onclick="rate(2)" style="padding: 20px;"> 2 </span>
-				<span id='1' onclick="rate(3)" style="padding: 20px;"> 3 </span>
-				<span id='1' onclick="rate(4)" style="padding: 20px;"> 4 </span>
-				<span id='1' onclick="rate(5)" style="padding: 20px;"> 5 </span>
+			<div class="rate">
+					<span class='fa fa-star' id='1'></span>
+					<span class='fa fa-star' id='2'></span>
+					<span class='fa fa-star' id='3'></span>
+					<span class='fa fa-star' id='4'></span>
+					<span class='fa fa-star' id='5'></span>
 			</div>
 		</div>
+		{% endif %}
 	</body>
 </html>

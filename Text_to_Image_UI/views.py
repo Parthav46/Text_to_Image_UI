@@ -19,7 +19,9 @@ def t2i(request):
     if result[0]:
         Survey(id=result[1], string=text, url="/static/images/img_{}.jpg".format(result[1])).save()
         context = {
-            'num': result[1]
+            'num': result[1],
+            'rating': 0,
+            'survey': True
         }
         return render(request, 't2i.html', context)
 
