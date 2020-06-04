@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import url
-from .views import index, t2i
+from .views import index, t2i, rate
 
 urlpatterns = [
     url(r'admin/', admin.site.urls),
 	url(r'^$', index),
-    url(r'^t2i$', t2i)
+    url(r'^t2i$', t2i),
+    url(r'^rate$', rate)
 ]

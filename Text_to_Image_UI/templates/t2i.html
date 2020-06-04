@@ -3,6 +3,24 @@
 <!DOCTYPE html>
 <html lang="en">
 	<body>
-		<img src="{% static 'images' %}/img_{{ num }}.jpg" alt="bird_image"/>
+		<div class='res'>
+			<input id='id' hidden='true' value="{{ num }}">
+			<input id='rating' hidden='true' value="{{ rating }}">
+			<img class="image" src="{% static 'images' %}/img_{{ num }}.jpg" alt="bird_image"/>
+		</div>
+		{% if survey %}
+		<div class="rating">
+			<div class="text">
+				How satisfied are you with the details of the generated image?
+			</div>
+			<div class="rate">
+					<span class='fa fa-star' id='1'></span>
+					<span class='fa fa-star' id='2'></span>
+					<span class='fa fa-star' id='3'></span>
+					<span class='fa fa-star' id='4'></span>
+					<span class='fa fa-star' id='5'></span>
+			</div>
+		</div>
+		{% endif %}
 	</body>
 </html>
