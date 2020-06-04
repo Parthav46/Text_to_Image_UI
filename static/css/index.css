@@ -9,6 +9,7 @@ body {
 .res {
 	width: fit-content;
 	margin: auto;
+	text-align: center;
 }
 
 .image {
@@ -57,6 +58,7 @@ body {
 	display: flex;
 	flex-direction: row;
 	width: fit-content;
+	justify-content: center;
 	height: 40px;
 	margin: 30px auto 50px auto;
 }
@@ -66,6 +68,7 @@ body {
 	width: 50px;
 	width: fit-content;
 	margin: 10px auto;
+	text-align: center;
 }
 
 .fa-play {
