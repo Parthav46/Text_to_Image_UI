@@ -33,7 +33,7 @@ def get_path():
 class Text_to_Image():
     def __init__(self):
         self.checkpoint_dir = './checkpoint'
-        self.word_to_idx = pickle.load(open('./static/captions.pickle', 'rb'))[3]
+        self.word_to_idx = pickle.load(open('./static/captions.pickle', 'rb'))
         self.rnn_encoder = RnnEncoder(n_words=len(self.word_to_idx), embed_dim=256,
                             drop_rate=0.5, n_hidden=128, n_layer=1,
                             bidirectional=True, rnn_type='lstm')
