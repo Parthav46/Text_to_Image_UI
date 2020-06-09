@@ -14,14 +14,23 @@
 			<h1> Text to Image Synthesis using GANs </h1>
 		</div>
 		<div name='project'>
+			<div class='label'>
+				<p> Describe a bird in the textbox given below and the program will try to generate an image for it.</p>
+			</div>
 			{% csrf_token %}
 			<div class='input'>	
 				<input class='text' type='text' id='text' name='text'>
+				<div class='random' id='random'>
+					<div class="holder">
+						<span class="fa fa-random"></span>
+					</div>
+				</div>
 				<div class='submit' id='submit'>
 					<div class="holder">
 						<span class="fa fa-play"></span>
 					</div>
 				</div>
+
 			</div>
 			<div>
 				<div id='loader' style="visibility: hidden;">

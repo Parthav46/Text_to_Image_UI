@@ -1,6 +1,5 @@
 $(document).ready(() => {
 	$("#submit").on("click", () => {
-		console.log('function call');
 		let str = $('#text').val();
 		if (str === '' || str === null) return;
 		$('#loader').css("visibility", "visible");
@@ -9,7 +8,7 @@ $(document).ready(() => {
 			csrfmiddlewaretoken: csrf_token,
 			text: str
 		},
-		function(data, status) {
+		(data, status) => {
 			$('#loader').css("visibility", "hidden")
 			if(status === 'success') {
 				$('#content').html(data);
@@ -37,6 +36,22 @@ $(document).ready(() => {
 			}
 		});
 	});
+
+	$("#random").on("click", () => {
+		$.get("/randcap",
+		(data, status) => {
+			if(status === 'success') {
+				$("#text").val(data);
+			}
+		}
+		)
+	});
+
+	$(document).on('keypress', (event) => {
+		if(event.keyCode === 13) {
+			$("#submit").click();
+		}
+	})
 })
 
 rate = (rating, id) => {	
