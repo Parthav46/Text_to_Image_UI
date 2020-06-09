@@ -1,4 +1,4 @@
-from model.UI import Text_to_Image
+from model.UI import Text_to_Image, RandomCaption
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseServerError
 import json
@@ -33,3 +33,7 @@ def rate(request):
         return HttpResponse('true')
     except:
         return HttpResponseServerError('false')
+
+def random(request):
+    random = RandomCaption()
+    return HttpResponse(random.get())
