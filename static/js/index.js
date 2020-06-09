@@ -1,8 +1,9 @@
 $(document).ready(() => {
 	$("#submit").on("click", () => {
 		console.log('function call');
-		$('#loader').css("visibility", "visible");
 		let str = $('#text').val();
+		if (str === '' || str === null) return;
+		$('#loader').css("visibility", "visible");
 		let csrf_token = $("[name='csrfmiddlewaretoken']")[0].value;
 		$.post("./t2i", {
 			csrfmiddlewaretoken: csrf_token,

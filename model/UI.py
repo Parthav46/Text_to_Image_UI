@@ -3,6 +3,7 @@ from tensorflow.python.data.experimental import prefetch_to_device, shuffle_and_
 from model.networks import *
 import cv2
 import os
+import time
 
 def imsave(image, size, path):
     image = ((image+1.) / 2) * 255.0
@@ -33,7 +34,7 @@ def get_path():
 class Text_to_Image():
     def __init__(self):
         self.checkpoint_dir = './checkpoint'
-        self.word_to_idx = pickle.load(open('./static/captions.pickle', 'rb'))
+        self.word_to_idx = pickle.load(open('./static/id_map.pickle', 'rb'))
         self.rnn_encoder = RnnEncoder(n_words=len(self.word_to_idx), embed_dim=256,
                             drop_rate=0.5, n_hidden=128, n_layer=1,
                             bidirectional=True, rnn_type='lstm')
@@ -71,6 +72,19 @@ class Text_to_Image():
         return imsave(fake, [1, 1], path[0]), path[1]
 
 
+class RandomCaption():
+    def __init__(self):
+        data = pickle.load(open('./static/captions.pickle', 'rb'))
+        self.captions = data[0]
+        self.idx_to_word = data[1]
+    
+    def get(self):
+        pos = int(time.time() * 1000) % len(self.captions)
+        caption = self.captions[pos]
+        return ' '.join([self.idx_to_word[i] for i in caption])
+
+
+# Test program
 if __name__ == "__main__":
     text = 'a small yellow bird with black beak' # input text here
     t2i = Text_to_Image()

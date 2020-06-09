@@ -57,7 +57,7 @@ body {
 	display: inline-block;
 	background-color: #ffffff;
 	height: 30px;
-	width: 250px;
+	width: 100%;
 	font-size: 20px;
 	padding: 5px 10px;
 	border: 3px solid #000000;
@@ -73,7 +73,7 @@ body {
 .input {
 	display: flex;
 	flex-direction: row;
-	width: fit-content;
+	width: 80%;
 	justify-content: center;
 	height: 40px;
 	margin: 30px auto 0px auto;
@@ -171,7 +171,8 @@ body {
 .rating {
 	display: flex;
 	flex-direction: column;
-	width: 100%;
+	width: 96%;
+	padding: 2%;
 	min-width: 300px;
 	position: absolute;
 }
