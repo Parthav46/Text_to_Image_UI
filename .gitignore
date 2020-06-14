@@ -1,5 +1,4 @@
 dataset/
-test.py
 checkpoint/
 __pycache__/
 *.pyc

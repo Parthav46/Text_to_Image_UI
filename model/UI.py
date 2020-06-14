@@ -78,7 +78,7 @@ class Text_to_Image():
         i = get_index(scores)
         fake = np.expand_dims(fake_imgs[-1][0], axis=0)
         path = get_path()
-        return imsave(fake, [1, 1], path[0]), path[0], i[1]
+        return imsave(fake, [1, 1], path[0]), path[1], i[1], path[0]
 
 
 class RandomCaption():
