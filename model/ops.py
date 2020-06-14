@@ -124,6 +124,13 @@ class BatchNorm(tf.keras.layers.Layer):
 # Activation Function
 ##################################################################################
 
+def Leaky_Relu(x=None, alpha=0.01, name='leaky_relu'):
+    # pytorch alpha is 0.01
+    if x is None:
+        return tf.keras.layers.LeakyReLU(alpha=alpha, name=name)
+    else:
+        return tf.keras.layers.LeakyReLU(alpha=alpha, name=name)(x)
+
 def Relu(x=None, name='relu'):
     if x is None:
         return tf.keras.layers.Activation(tf.keras.activations.relu, name=name)
