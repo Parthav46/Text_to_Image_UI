@@ -219,6 +219,9 @@ class Generator_128(tf.keras.layers.Layer):
         for i in range(2):
             model += [ResBlock(self.channels * 3, name='resblock_' + str(i))]
 
+        model += [Conv(self.channels*2, kernel=1, stride=1, use_bias=False, name='conv_res')]
+        model += [ResBlock(self.channels * 2, name='resblock_2')]
+        
         model += [UpBlock(self.channels, name='up_block')]
 
         model = Sequential(model)
