@@ -76,7 +76,7 @@ class Text_to_Image():
         scores = self.discriminator([fake_imgs[0], fake_imgs[1], sent_emb], training=True)
         scores = np.concatenate((scores[0][1], scores[1][1]), 3)
         i = get_index(scores)
-        fake = np.expand_dims(fake_imgs[-1][0], axis=0)
+        fake = np.expand_dims(fake_imgs[-1][i[0]], axis=0)
         path = get_path()
         return imsave(fake, [1, 1], path[0]), path[1], i[1], path[0]
 
