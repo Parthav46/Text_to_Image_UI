@@ -13,7 +13,8 @@ def t2i(request):
         t2i = Text_to_Image()  
         print("Input >>>>> ", text)
         result = t2i.process(text)
-    except:
+    except Exception as e:
+        print(e)
         return render(request, '403.html', status='403')
 
     if result[0]:
